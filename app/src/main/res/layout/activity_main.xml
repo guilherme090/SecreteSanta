@@ -27,6 +27,7 @@
 
         <Button
             android:id="@+id/title_btn"
+            android:onClick="startApp"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_alignParentBottom="true"
@@ -35,7 +36,6 @@
             android:scaleY="1"
             android:background="#DDAA00"
             android:text="Shuffle Names"
-            android:textSize="15dp"
-            android:onClick="startApp"/>
+            android:textSize="15dp"/>
     </RelativeLayout>
 </RelativeLayout>

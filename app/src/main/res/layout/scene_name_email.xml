@@ -22,6 +22,7 @@
             android:textColor="#000000" >
         </TextView>
         <TextView
+            android:id="@+id/number_of_participants_label"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginRight="13dp"
@@ -35,6 +36,8 @@
             android:textColor="#000000">
         </TextView>
         <Button
+            android:id="@+id/button_less_people"
+            android:onClick="lessPeople"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginTop="13dp"
@@ -45,6 +48,8 @@
             android:gravity="center">
         </Button>
         <Button
+            android:id="@+id/button_more_people"
+            android:onClick="morePeople"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginTop="13dp"
@@ -55,6 +60,5 @@
             android:gravity="center">
         </Button>
     </LinearLayout>
-
 
 </LinearLayout>
