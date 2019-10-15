@@ -95,14 +95,11 @@ public class MainActivity extends AppCompatActivity {
         numberOfParticipantsLabel.setText(String.valueOf(numberOfParticipants));
 
         //update text views in the screen for names and e-mails
-
         pptView = new ParticipantView (context);
 
         //find scene's main layout and attach new views to it.
         LinearLayout mainLayout = (LinearLayout) findViewById(R.id.number_of_participants_layout);
-        mainLayout.addView(pptView.nameView(getApplicationContext(),"Participant Name"));
-        mainLayout.addView(pptView.emailView(getApplicationContext(),"Participant E-mail"));
-
+        mainLayout.addView(pptView.nameView(getApplicationContext(),""));
+        mainLayout.addView(pptView.emailView(getApplicationContext(),""));
     }
-
 }
