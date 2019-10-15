@@ -3,6 +3,7 @@ package com.example.android.secretesanta;
 import android.content.Context;
 import android.graphics.Color;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 class ParticipantView {
@@ -13,20 +14,22 @@ class ParticipantView {
     }
 
     //View for participant name
-    TextView nameView(Context context, String text){
-        final ViewGroup.LayoutParams lParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-        final TextView nView = new TextView(context);
+    EditText nameView(Context context, String text){
+        final ViewGroup.LayoutParams lParams = new ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        final EditText nView = new EditText(context);
         nView.setLayoutParams(lParams);
-        nView.setTextSize(13);
+        nView.setTextSize(15);
         nView.setTextColor(Color.rgb(255,255,255));
         nView.setText(text);
-        nView.setMaxEms(15);
+        nView.setMaxEms(10);
         return nView;
     }
 
     //View for participant email
     TextView emailView(Context context, String text){
-        final ViewGroup.LayoutParams lParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        final ViewGroup.LayoutParams lParams = new ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
         final TextView eView = new TextView(context);
         eView.setLayoutParams(lParams);
         eView.setTextSize(13);
