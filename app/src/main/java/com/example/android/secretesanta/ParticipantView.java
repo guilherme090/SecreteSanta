@@ -11,6 +11,7 @@ import androidx.annotation.ColorInt;
 
 class ParticipantView {
     private Context ctx;
+    static private int numberOfFields = 2;
 
     ParticipantView(Context ctx){
         this.ctx = ctx;
@@ -46,5 +47,9 @@ class ParticipantView {
         eView.setHintTextColor(Color.rgb(200,200,200)); //light grey
         eView.setMaxEms(10);
         return eView;
+    }
+
+    static public int getNumberOfFields(){
+        return numberOfFields;
     }
 }

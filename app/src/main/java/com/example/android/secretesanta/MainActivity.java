@@ -70,9 +70,48 @@ public class MainActivity extends AppCompatActivity {
     public void startApp(View view){
         Transition explode = new Explode();
         TransitionManager.go(scene_number_of_people, explode);
+        //In the new view, show list of participants
+        showParticipants();
     }
 
     //scene_number_of_people
+    void showParticipants(){
+        //update text views in the screen for names and e-mails
+        pptView = new ParticipantView (context);
+
+        //find scene's main layout and attach new views to it.
+        LinearLayout participantsLayout = (LinearLayout)
+                findViewById(R.id.number_of_participants_layout);
+        //participantsLayout.removeAllViews();
+        //participantsLayout.setVisibility(View.INVISIBLE);
+        //Create all views for the maximum number of players. Hide those below the minimum value.
+        for(int i=0;i<MAX_PLAYERS;i++){
+            participantsLayout.addView(pptView.nameView(getApplicationContext(),""));
+            participantsLayout.addView(pptView.emailView(getApplicationContext(),""));
+        }
+        //hide all views after the minimum number of players
+        hideRemainingViews(MIN_PLAYERS,participantsLayout);
+    }
+
+    void hideRemainingViews(int firstToHide, LinearLayout participantsLayout){
+        //For each participant, hide all fields in participantView starting from the one given
+        //as parameter
+        try{
+            //first, make sure the previous views are visible.
+            for(int i=0; i<firstToHide*ParticipantView.getNumberOfFields(); i++){
+                View child = participantsLayout.getChildAt(i);
+                child.setVisibility(View.VISIBLE);
+            }
+            //then, make the rest invisible
+            for(int i=firstToHide*ParticipantView.getNumberOfFields();
+                i<MAX_PLAYERS*ParticipantView.getNumberOfFields(); i++){
+                View child = participantsLayout.getChildAt(i);
+                child.setVisibility(View.INVISIBLE);
+            }}catch(ArrayIndexOutOfBoundsException exception){
+                //Some method is using invalid index values as participant numbers.
+        }
+    }
+
     public void morePeople(View view){
         if (numberOfParticipants < MAX_PLAYERS){
             //update and show number
@@ -93,13 +132,9 @@ public class MainActivity extends AppCompatActivity {
         //find the label for the number of participants
         numberOfParticipantsLabel = (TextView) findViewById(R.id.number_of_participants_label);
         numberOfParticipantsLabel.setText(String.valueOf(numberOfParticipants));
-
-        //update text views in the screen for names and e-mails
-        pptView = new ParticipantView (context);
-
-        //find scene's main layout and attach new views to it.
-        LinearLayout mainLayout = (LinearLayout) findViewById(R.id.number_of_participants_layout);
-        mainLayout.addView(pptView.nameView(getApplicationContext(),""));
-        mainLayout.addView(pptView.emailView(getApplicationContext(),""));
+        //find scene's main layout.
+        LinearLayout participantsLayout = (LinearLayout)
+                findViewById(R.id.number_of_participants_layout);
+        hideRemainingViews(numberOfParticipants,participantsLayout);
     }
 }
