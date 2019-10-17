@@ -135,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
         //find scene's main layout.
         LinearLayout participantsLayout = (LinearLayout)
                 findViewById(R.id.number_of_participants_layout);
+        //Make views that are greater than the number of people invisible
         hideRemainingViews(numberOfParticipants,participantsLayout);
     }
 }

@@ -15,7 +15,7 @@ package com.example.android.secretesanta;
  **/
 public class Person {
     //Attributes
-    private int id;
+    private int id; //not yet being used
     private String name;
     private String eMail;
     private String secret;

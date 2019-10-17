@@ -7,7 +7,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true">
         <TextView
             android:layout_width="0dp"
             android:layout_height="50dp"
@@ -59,12 +60,26 @@
             android:gravity="center">
         </Button>
     </LinearLayout>
-    <LinearLayout
-        android:id="@+id/number_of_participants_layout"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="2">
+        <LinearLayout
+            android:id="@+id/number_of_participants_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="13dp"
+            android:orientation="vertical">
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:layout_margin="13dp"
-        android:orientation="vertical">
-    </LinearLayout>
+        android:background="#DDAA00"
+        android:text="Save and shuffle names"
+        android:layout_alignParentBottom="true">
+    </Button>
 
 </LinearLayout>
