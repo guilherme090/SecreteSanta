@@ -16,7 +16,7 @@
             android:layout_margin="13dp"
             android:text="How many people?"
             android:gravity="center"
-            android:background="#DDAA00"
+            android:background="#FFFFFF"
             android:textSize="15dp"
             android:textAlignment="center"
             android:textColor="#000000" >
@@ -43,7 +43,7 @@
             android:layout_marginTop="13dp"
             android:layout_marginBottom="13dp"
             android:layout_marginRight="13dp"
-            android:background="#BBBBBB"
+            android:background="#DDAA00"
             android:text="-"
             android:gravity="center">
         </Button>
@@ -55,7 +55,7 @@
             android:layout_marginTop="13dp"
             android:layout_marginBottom="13dp"
             android:layout_marginRight="13dp"
-            android:background="#BBBBBB"
+            android:background="#DDAA00"
             android:text="+"
             android:gravity="center">
         </Button>

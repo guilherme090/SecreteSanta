@@ -35,7 +35,7 @@
             android:scaleX="1"
             android:scaleY="1"
             android:background="#DDAA00"
-            android:text="Shuffle Names"
+            android:text="Start app"
             android:textSize="15dp"/>
     </RelativeLayout>
 </RelativeLayout>
