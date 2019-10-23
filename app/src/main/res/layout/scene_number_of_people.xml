@@ -78,7 +78,7 @@
         android:layout_height="50dp"
         android:layout_margin="13dp"
         android:background="#DDAA00"
-        android:text="Save and shuffle names"
+        android:text="Save friends names"
         android:layout_alignParentBottom="true">
     </Button>
 

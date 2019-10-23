@@ -82,8 +82,6 @@ public class MainActivity extends AppCompatActivity {
         //find scene's main layout and attach new views to it.
         LinearLayout participantsLayout = (LinearLayout)
                 findViewById(R.id.number_of_participants_layout);
-        //participantsLayout.removeAllViews();
-        //participantsLayout.setVisibility(View.INVISIBLE);
         //Create all views for the maximum number of players. Hide those below the minimum value.
         for(int i=0;i<MAX_PLAYERS;i++){
             participantsLayout.addView(pptView.nameView(getApplicationContext(),""));
@@ -109,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
                 child.setVisibility(View.INVISIBLE);
             }}catch(ArrayIndexOutOfBoundsException exception){
                 //Some method is using invalid index values as participant numbers.
+                numberOfParticipants = MAX_PLAYERS;
         }
     }
 
