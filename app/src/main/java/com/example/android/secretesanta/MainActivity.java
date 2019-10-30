@@ -37,7 +37,8 @@ public class MainActivity extends AppCompatActivity {
     final int MIN_PLAYERS = 3; //it does not make sense to sort 2 people or less
     final int MAX_PLAYERS = 50; //do not allow more than this many people
     private int numberOfParticipants = 3; //updates by user via buttons
-    Person [] listOfParticipants = new Person[MAX_PLAYERS]; //initialize with Person instances
+    Shuffler list = new Shuffler(MAX_PLAYERS);
+    //Person [] listOfParticipants = new Person[MAX_PLAYERS]; //initialize with Person instances
 
     /**
      * Context variables
@@ -131,20 +132,16 @@ public class MainActivity extends AppCompatActivity {
         //find scene's main layout and attach new views to it.
         LinearLayout participantsLayout = (LinearLayout)
                 findViewById(R.id.number_of_participants_layout);
-        //initialize participant array with Person instances
-        for(int i=0;i<MAX_PLAYERS; i++){
-            listOfParticipants[i] = new Person();
-        }
         saveParticipants(participantsLayout);
     }
     public void saveParticipants(LinearLayout participantsLayout){
         //for each pair of views, save participant name and e-mail.
         for(int i=0; i<numberOfParticipants*2; i++){
             EditText child = (EditText) participantsLayout.getChildAt(i);
-            listOfParticipants[i/2].setName(child.getText().toString());
+            list.listOfParticipants[i/2].setName(child.getText().toString());
             i++;
             child = (EditText) participantsLayout.getChildAt(i);
-            listOfParticipants[i/2].setEMail(child.getText().toString());
+            list.listOfParticipants[i/2].setEMail(child.getText().toString());
         }
     }
 

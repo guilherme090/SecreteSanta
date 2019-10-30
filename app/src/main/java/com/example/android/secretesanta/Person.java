@@ -11,6 +11,7 @@ package com.example.android.secretesanta;
  *      private boolean isAssigned (set to true after shuffling)
  *
  * Methods:
+ *      <Constructor> public Person(int id) // creates empty object with id, only.
  *      Getters & Setters
  **/
 public class Person {
@@ -21,6 +22,10 @@ public class Person {
     private String secret;
 
     //Methods:
+    //Constructor
+    public Person(int id){
+        this.id = id;
+    }
     //Getters:
     public int getId(){
         return id;
