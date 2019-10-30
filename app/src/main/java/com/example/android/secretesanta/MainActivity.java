@@ -90,8 +90,8 @@ public class MainActivity extends AppCompatActivity {
                 findViewById(R.id.number_of_participants_layout);
         //Create all views for the maximum number of players. Hide those below the minimum value.
         for(int i=0;i<MAX_PLAYERS;i++){
-            participantsLayout.addView(pptView.nameView(getApplicationContext(),""));
-            participantsLayout.addView(pptView.emailView(getApplicationContext(),""));
+            participantsLayout.addView(pptView.nameView(getApplicationContext(),i+1 + ". Name"));
+            participantsLayout.addView(pptView.emailView(getApplicationContext(),i+1 + ". E-mail"));
         }
         //hide all views after the minimum number of players
         hideRemainingViews(MIN_PLAYERS,participantsLayout);

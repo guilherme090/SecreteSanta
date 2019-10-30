@@ -18,7 +18,7 @@ class ParticipantView {
     }
 
     //View for participant name
-    EditText nameView(Context context, String text){
+    EditText nameView(Context context, String hint){
         final ViewGroup.LayoutParams lParams = new ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
         final EditText nView = new EditText(context);
@@ -26,15 +26,15 @@ class ParticipantView {
         nView.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
         nView.setTextSize(15);
         nView.setTextColor(Color.rgb(221,170,0)); //same color as gold button
-        nView.setText(text);
-        nView.setHint("Name");
+        nView.setText("");
+        nView.setHint(hint);
         nView.setHintTextColor(Color.rgb(220,220,220)); //light grey
         nView.setMaxEms(10);
         return nView;
     }
 
     //View for participant email
-    EditText emailView(Context context, String text){
+    EditText emailView(Context context, String hint){
         final ViewGroup.LayoutParams lParams = new ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
         final EditText eView = new EditText(context);
@@ -42,8 +42,8 @@ class ParticipantView {
         eView.setInputType(InputType.TYPE_TEXT_VARIATION_WEB_EMAIL_ADDRESS);
         eView.setTextSize(15);
         eView.setTextColor(Color.rgb(255,255,255));
-        eView.setText(text);
-        eView.setHint("e-mail");
+        eView.setText("");
+        eView.setHint(hint);
         eView.setHintTextColor(Color.rgb(200,200,200)); //light grey
         eView.setMaxEms(10);
         return eView;
