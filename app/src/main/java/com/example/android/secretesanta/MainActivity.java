@@ -11,6 +11,7 @@ import android.transition.TransitionManager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     final int MIN_PLAYERS = 3; //it does not make sense to sort 2 people or less
     final int MAX_PLAYERS = 50; //do not allow more than this many people
     private int numberOfParticipants = 3; //updates by user via buttons
-    Person [] listOfParticipants = new Person[MAX_PLAYERS];
+    Person [] listOfParticipants = new Person[MAX_PLAYERS]; //initialize with Person instances
 
     /**
      * Context variables
@@ -54,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
                 R.layout.activity_main,this);
         scene_number_of_people = Scene.getSceneForLayout((ViewGroup)findViewById(R.id.sceneContainer),
                 R.layout.scene_number_of_people,this);
-
         activity_main.enter();
     }
 
@@ -75,6 +75,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //scene_number_of_people
+    /**
+     *  void showParticipants()
+     *  this is launched the first time the names and e-mails scene is called.
+     *  create one nameView and one emailView for each participant (MAX_PLAYERS)
+     **/
     void showParticipants(){
         //update text views in the screen for names and e-mails
         pptView = new ParticipantView (context);
@@ -91,6 +96,12 @@ public class MainActivity extends AppCompatActivity {
         hideRemainingViews(MIN_PLAYERS,participantsLayout);
     }
 
+    /**
+     *  void hideRemainingViews(int firstToHide, LinearLayout participantsLayout)
+     *  given the number of participants, make the views visible or invisible according
+     *  to the given number (e.g. for 4 participants, make the first 4 views visible and
+     *  all the others invisible.
+     **/
     void hideRemainingViews(int firstToHide, LinearLayout participantsLayout){
         //For each participant, hide all fields in participantView starting from the one given
         //as parameter
@@ -111,6 +122,32 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     *  void saveParticipants(LinearLayout participantsLayout)
+     *  use the data stored in the views to populate the Person objects with names and
+     *  e-mails to prepare them for sorting.
+     **/
+    public void saveParticipants(View view){
+        //find scene's main layout and attach new views to it.
+        LinearLayout participantsLayout = (LinearLayout)
+                findViewById(R.id.number_of_participants_layout);
+        //initialize participant array with Person instances
+        for(int i=0;i<MAX_PLAYERS; i++){
+            listOfParticipants[i] = new Person();
+        }
+        saveParticipants(participantsLayout);
+    }
+    public void saveParticipants(LinearLayout participantsLayout){
+        //for each pair of views, save participant name and e-mail.
+        for(int i=0; i<numberOfParticipants*2; i++){
+            EditText child = (EditText) participantsLayout.getChildAt(i);
+            listOfParticipants[i/2].setName(child.getText().toString());
+            i++;
+            child = (EditText) participantsLayout.getChildAt(i);
+            listOfParticipants[i/2].setEMail(child.getText().toString());
+        }
+    }
+
     public void morePeople(View view){
         if (numberOfParticipants < MAX_PLAYERS){
             //update and show number
@@ -127,6 +164,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     *  void updateNumber()
+     *  called when the number of participants is changed by the user. Make the changes visible
+     *  in the number of participants label and show/hide views to show only the current number
+     *  of participants.
+     **/
     public void updateNumber(){
         //find the label for the number of participants
         numberOfParticipantsLabel = (TextView) findViewById(R.id.number_of_participants_label);

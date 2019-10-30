@@ -30,7 +30,7 @@ public class Person {
         return name;
     }
 
-    public String geteMail(){
+    public String getEMail(){
         return eMail;
     }
 

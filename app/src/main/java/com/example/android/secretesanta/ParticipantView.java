@@ -52,4 +52,5 @@ class ParticipantView {
     static public int getNumberOfFields(){
         return numberOfFields;
     }
+
 }

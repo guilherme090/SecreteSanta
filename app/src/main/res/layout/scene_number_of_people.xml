@@ -74,6 +74,8 @@
     </ScrollView>
 
     <Button
+        android:id="@+id/button_save_friends_names"
+        android:onClick="saveParticipants"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_margin="13dp"
