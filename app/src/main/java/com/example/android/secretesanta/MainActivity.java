@@ -143,6 +143,8 @@ public class MainActivity extends AppCompatActivity {
             child = (EditText) participantsLayout.getChildAt(i);
             list.listOfParticipants[i/2].setEMail(child.getText().toString());
         }
+    boolean shuffling = false;
+        while (shuffling == false) shuffling = list.shuffle(numberOfParticipants);
     }
 
     public void morePeople(View view){

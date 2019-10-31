@@ -9,6 +9,7 @@ package com.example.android.secretesanta;
  *      private String eMail
  *      private Person secret (foreign key - object of secret santa, if any)
  *      private boolean isAssigned (set to true after shuffling)
+ *      private boolean wasTaken (true if someone took their name)
  *
  * Methods:
  *      <Constructor> public Person(int id) // creates empty object with id, only.
@@ -19,12 +20,14 @@ public class Person {
     private int id; //not yet being used
     private String name;
     private String eMail;
-    private String secret;
+    private Person secret;
+    private Boolean wasTaken;
 
     //Methods:
     //Constructor
     public Person(int id){
         this.id = id;
+        this.wasTaken = false;
     }
     //Getters:
     public int getId(){
@@ -39,9 +42,12 @@ public class Person {
         return eMail;
     }
 
-    public String getSecret(){
+    public Person getSecret(){
         return secret;
     }
+
+    public Boolean getWasTaken(){return wasTaken;}
+
 
     //Setters:
     public void setId(int id){
@@ -56,8 +62,10 @@ public class Person {
         this.eMail=eMail;
     }
 
-    public void setSecret(String secret){
+    public void setSecret(Person secret){
         this.secret=secret;
     }
+
+    public void setWasTaken(Boolean wasTaken){this.wasTaken = wasTaken;}
 
 }
